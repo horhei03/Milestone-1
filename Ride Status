@@ -1,0 +1,120 @@
+RIDE_STATUS_SCHEMA = {
+  "type": "record",
+  "name": "RideStatus",
+  "fields": [
+    {
+      "name": "ride_id",
+      "type": "string",
+      "doc": "Unique identifier for the ride."
+    },
+    {
+      "name": "request_id",
+      "type": "string",
+      "doc": "Identifier linking this ride status to the original ride request."
+    },
+    {
+      "name": "status",
+      "type": {
+        "type": "enum",
+        "name": "RideStatusEnum",
+        "symbols": ["accepted", "ongoing", "completed", "cancelled"]
+      },
+      "doc": "Current status of the ride."
+    },
+    {
+      "name": "timestamp",
+      "type": "long",
+      "doc": "Epoch timestamp indicating when the status was recorded."
+    },
+    {
+      "name": "driver_id",
+      "type": "string",
+      "doc": "Unique identifier for the driver assigned to the ride."
+    },
+    {
+      "name": "estimated_arrival_time",
+      "type": "long",
+      "doc": "Estimated epoch timestamp of when the driver is expected to arrive at the pickup location."
+    },
+    {
+      "name": "actual_arrival_time",
+      "type": ["null", "long"],
+      "default": None,
+      "doc": "Actual epoch timestamp when the driver arrived at the pickup location. Null if not yet arrived."
+    },
+    {
+      "name": "ride_duration",
+      "type": ["null", "int"],
+      "default": None,
+      "doc": "Duration of the ride in minutes. Null if ride is not completed."
+    },
+    {
+      "name": "distance_traveled",
+      "type": ["null", "float"],
+      "default": None,
+      "doc": "Total distance traveled during the ride in kilometers. Null if ride is not completed."
+    },
+    {
+      "name": "fare",
+      "type": "float",
+      "doc": "Final fare amount for the ride."
+    },
+    {
+      "name": "surge_multiplier",
+      "type": "float",
+      "doc": "Surge pricing multiplier applied to the fare."
+    },
+    {
+      "name": "traffic_condition",
+      "type": {
+        "type": "enum",
+        "name": "TrafficCondition",
+        "symbols": ["low", "medium", "high"]
+      },
+      "doc": "Traffic conditions during the ride."
+    },
+    {
+      "name": "weather_condition",
+      "type": {
+        "type": "enum",
+        "name": "WeatherCondition",
+        "symbols": ["clear", "rainy", "snowy", "foggy", "stormy"]
+      },
+      "doc": "Weather conditions at the time of the ride."
+    },
+    {
+      "name": "day_of_week",
+      "type": {
+        "type": "enum",
+        "name": "DayOfWeek",
+        "symbols": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+      },
+      "doc": "Day of the week when the ride took place."
+    },
+    {
+      "name": "driver_rating",
+      "type": ["null", "float"],
+      "default": None,
+      "doc": "Driver's rating for the ride (scale 1-5). Null if ride not completed."
+    },
+    {
+      "name": "cancellation_reason",
+      "type": ["null", {
+        "type": "enum",
+        "name": "CancellationReason",
+        "symbols": ["user_request", "driver_unavailable", "technical_issue"]
+      }],
+      "default": None,
+      "doc": "Reason for ride cancellation, if applicable. Null if not cancelled."
+    },
+    {
+      "name": "payment_status",
+      "type": {
+        "type": "enum",
+        "name": "PaymentStatus",
+        "symbols": ["pending", "completed", "failed"]
+      },
+      "doc": "Current status of the ride payment."
+    }
+  ]
+}

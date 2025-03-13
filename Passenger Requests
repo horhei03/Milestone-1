@@ -1,0 +1,107 @@
+PASSENGER_REQUEST_SCHEMA = {
+  "type": "record",
+  "name": "PassengerRequest",
+  "fields": [
+    {
+      "name": "request_id",
+      "type": "string",
+      "doc": "Unique identifier for the passenger request."
+    },
+    {
+      "name": "user_id",
+      "type": "string",
+      "doc": "Unique identifier for the user making the request."
+    },
+    {
+      "name": "event_type",
+      "type": {
+        "type": "enum",
+        "name": "EventType",
+        "symbols": ["request", "cancel"]
+      },
+      "doc": "Type of event, either a ride request or a cancellation."
+    },
+    {
+      "name": "timestamp",
+      "type": "long",
+      "doc": "Epoch timestamp indicating when the request was made."
+    },
+    {
+      "name": "pickup_latitude",
+      "type": "double",
+      "doc": "Latitude coordinate of the pickup location."
+    },
+    {
+      "name": "pickup_longitude",
+      "type": "double",
+      "doc": "Longitude coordinate of the pickup location."
+    },
+    {
+      "name": "pickup_address",
+      "type": "string",
+      "doc": "Readable address of the pickup location."
+    },
+    {
+      "name": "dropoff_latitude",
+      "type": "double",
+      "doc": "Latitude coordinate of the dropoff location."
+    },
+    {
+      "name": "dropoff_longitude",
+      "type": "double",
+      "doc": "Longitude coordinate of the dropoff location."
+    },
+    {
+      "name": "dropoff_address",
+      "type": "string",
+      "doc": "Readable address of the dropoff location."
+    },
+    {
+      "name": "payment_method",
+      "type": {
+        "type": "enum",
+        "name": "PaymentMethod",
+        "symbols": ["credit_card", "debit_card", "cash", "mobile_payment"]
+      },
+      "doc": "Payment method chosen by the user."
+    },
+    {
+      "name": "vehicle_type",
+      "type": {
+        "type": "enum",
+        "name": "VehicleType",
+        "symbols": ["standard", "premium", "luxury", "pool"]
+      },
+      "doc": "Type of vehicle requested for the ride."
+    },
+    {
+      "name": "num_passengers",
+      "type": "int",
+      "doc": "Number of passengers included in the ride request."
+    },
+    {
+      "name": "fare_estimate",
+      "type": "float",
+      "doc": "Estimated fare for the requested ride."
+    },
+    {
+      "name": "ride_purpose",
+      "type": {
+        "type": "enum",
+        "name": "RidePurpose",
+        "symbols": ["commute", "airport", "business", "leisure"]
+      },
+      "doc": "Purpose of the ride request."
+    },
+    {
+      "name": "device_type",
+      "type": {
+        "type": "enum",
+        "name": "DeviceType",
+        "symbols": ["mobile", "web"]
+      },
+      "doc": "Type of device used to make the ride request."
+    }
+  ]
+}
+

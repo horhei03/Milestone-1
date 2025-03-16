@@ -53,7 +53,6 @@ Run the Jupyter notebook to:
    serialize_to_avro(statuses, RIDE_STATUS_SCHEMA, "ride_statuses.avro")
      
 ### View Data
-      ```bash
       def display_first_ten_records(filename):
          with open(filename, 'rb') as file:
             reader = fastavro.reader(file)

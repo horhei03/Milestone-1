@@ -51,3 +51,12 @@ statuses = [generate_ride_status(req["request_id"]) for req in requests]
 # Serialize to AVRO
 serialize_to_avro(requests, PASSENGER_REQUEST_SCHEMA, "passenger_requests.avro")
 serialize_to_avro(statuses, RIDE_STATUS_SCHEMA, "ride_statuses.avro")
+   
+### View Data
+```bash
+def display_first_ten_records(filename):
+    with open(filename, 'rb') as file:
+        reader = fastavro.reader(file)
+        for i in range(10):
+            print(next(reader))
+   

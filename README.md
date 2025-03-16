@@ -40,23 +40,32 @@ This project simulates realistic data for a ride-hailing service, generating syn
 ### Generate Data
 Run the Jupyter notebook to:
 1. Create synthetic ride requests and statuses
+   ```bash
+   # Generate 1,000 records
+   requests = [generate_ride_request() for _ in range(1000)]
+   statuses = [generate_ride_status(req["request_id"]) for req in requests]
 2. Serialize data AVRO files:
    - `passenger_requests.avro`
    - `ride_statuses.avro`
-```bash
-# Generate 1,000 records
-requests = [generate_ride_request() for _ in range(1000)]
-statuses = [generate_ride_status(req["request_id"]) for req in requests]
-
-# Serialize to AVRO
-serialize_to_avro(requests, PASSENGER_REQUEST_SCHEMA, "passenger_requests.avro")
-serialize_to_avro(statuses, RIDE_STATUS_SCHEMA, "ride_statuses.avro")
-   
+     ```bash
+     # Serialize to AVRO
+      serialize_to_avro(requests, PASSENGER_REQUEST_SCHEMA, "passenger_requests.avro")
+      serialize_to_avro(statuses, RIDE_STATUS_SCHEMA, "ride_statuses.avro")
+     
 ### View Data
-```bash
-def display_first_ten_records(filename):
-    with open(filename, 'rb') as file:
-        reader = fastavro.reader(file)
-        for i in range(10):
-            print(next(reader))
-   
+      ```bash
+      def display_first_ten_records(filename):
+          with open(filename, 'rb') as file:
+              reader = fastavro.reader(file)
+              for i in range(10):
+                  print(next(reader))
+
+## Key Observation
+1. Dynamic Fare Calculation:
+   - Base fare ($5–20) multiplied by surge factors (peak hours, weather, traffic).
+   - Example: A rainy Friday night ride costs $56.32 (stormy weather + high traffic).
+2. Cancellation Logic:
+   - 15% of requests are cancellations, with reasons like `drive_unavailbale`
+3. Data Relationships:
+   - `request_id` links ride statuses to their original requests.
+   - Completed rides include `distance_traveled` and `driver_rating`.

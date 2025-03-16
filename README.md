@@ -31,3 +31,23 @@ This project simulates realistic data for a ride-hailing service, generating syn
 1. **Dependencies**:
    ```bash
    pip install Faker mimesis fastavro
+2. **Libraries Used**:
+   - `Faker` and `mimesis for data generation
+   - `fastavro` for AVRO serialization
+   - `numpy`, `pandas` for data manipulation
+  
+## Usage
+### Generate Data
+Run the Jupyter notebook to:
+1. Create synthetic ride requests and statuses
+2. Serialize data AVRO files:
+   - `passenger_requests.avro`
+   - `ride_statuses.avro`
+```bash
+# Generate 1,000 records
+requests = [generate_ride_request() for _ in range(1000)]
+statuses = [generate_ride_status(req["request_id"]) for req in requests]
+
+# Serialize to AVRO
+serialize_to_avro(requests, PASSENGER_REQUEST_SCHEMA, "passenger_requests.avro")
+serialize_to_avro(statuses, RIDE_STATUS_SCHEMA, "ride_statuses.avro")

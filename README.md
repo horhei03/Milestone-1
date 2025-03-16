@@ -68,3 +68,5 @@ Run the Jupyter notebook to:
 3. Data Relationships:
    - `request_id` links ride statuses to their original requests.
    - Completed rides include `distance_traveled` and `driver_rating`.
+
+## **Contributors**: Nicolas Cubillo, Pablo Gomez, Sebastian Llobet, Pablo Jaime Rivera, Jorge Rodriguez

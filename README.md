@@ -47,18 +47,18 @@ Run the Jupyter notebook to:
 2. Serialize data AVRO files:
    - `passenger_requests.avro`
    - `ride_statuses.avro`
-     ```bash
-     # Serialize to AVRO
-      serialize_to_avro(requests, PASSENGER_REQUEST_SCHEMA, "passenger_requests.avro")
-      serialize_to_avro(statuses, RIDE_STATUS_SCHEMA, "ride_statuses.avro")
+   ```bash
+   # Serialize to AVRO
+   serialize_to_avro(requests, PASSENGER_REQUEST_SCHEMA, "passenger_requests.avro")
+   serialize_to_avro(statuses, RIDE_STATUS_SCHEMA, "ride_statuses.avro")
      
 ### View Data
       ```bash
       def display_first_ten_records(filename):
-          with open(filename, 'rb') as file:
-              reader = fastavro.reader(file)
-              for i in range(10):
-                  print(next(reader))
+         with open(filename, 'rb') as file:
+            reader = fastavro.reader(file)
+               for i in range(10):
+               print(next(reader))
 
 ## Key Observation
 1. Dynamic Fare Calculation:

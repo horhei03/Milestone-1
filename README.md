@@ -68,5 +68,32 @@ Run the Jupyter notebook to:
 3. Data Relationships:
    - `request_id` links ride statuses to their original requests.
    - Completed rides include `distance_traveled` and `driver_rating`.
+   
+# Milestone 2
+## Spark Streaming: Azure Event Hub to Blob Storage
 
+Stream Avro-formatted data from Azure Event Hubs (via Kafka API) using Spark Structured Streaming, process it, and persist results to Azure Blob Storage in Parquet format.
+
+## Overview
+- **Data Source**: Azure Event Hubs (Kafka API) with two topics: `passenger_requests_10` and `ride_status_10`.
+- **Processing**: Deserialize Avro data using predefined schemas and perform lightweight transformations.
+- **Sink**: Write processed data to Azure Blob Storage in partitioned Parquet files.
+- **Fault Tolerance**: Uses Spark checkpointing to ensure exactly-once processing semantics.
+
+## Prerequisites
+- **Azure Account**: With access to Event Hubs and Blob Storage.
+- **Azure Resources**:
+  - Event Hub namespace with Kafka-enabled topics.
+  - Blob Storage container named `group10` (or update the container name in the code).
+- **Environment**:
+  - Python 3.8+.
+  - Java 8 (required for Spark).
+  - Apache Spark 3.5.0 with Hadoop 3.
+  - Libraries: `azure-eventhub`, `fastavro`, `faker`, and Spark dependencies.
+
+## Setup
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/your-repo.git
+   cd your-repo
 ## **Contributors**: Nicolas Cubillo, Pablo Gomez, Sebastian Llobet, Pablo Jaime Rivera, Jorge Rodriguez

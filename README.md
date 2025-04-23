@@ -96,4 +96,17 @@ Stream Avro-formatted data from Azure Event Hubs (via Kafka API) using Spark Str
    ```bash
    git clone https://github.com/your-username/your-repo.git
    cd your-repo
+2. **Install Dependencies**:
+   ```bash
+   pip install azure-eventhub fastavro faker findspark
+3. **Azure Configuration**:
+   - **Event Hubs**:
+      - Create an Event Hub namespace and topics (passenger_requests_10, ride_status_10).
+      - Obtain the connection string with Consumer policy permissions.
+   - **Blob Storage**:
+      - Create a container named group10.
+      - Retrieve the storage account name and access key.
+4. **Update Configuration**: Replace placeholder values in the notebook with your Azure credentials:
+   ```bash
+
 ## **Contributors**: Nicolas Cubillo, Pablo Gomez, Sebastian Llobet, Pablo Jaime Rivera, Jorge Rodriguez

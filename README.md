@@ -69,8 +69,7 @@ Run the Jupyter notebook to:
    - `request_id` links ride statuses to their original requests.
    - Completed rides include `distance_traveled` and `driver_rating`.
    
-# Milestone 2
-## Spark Streaming: Azure Event Hub to Blob Storage
+# Milestone 2 (Spark Streaming: Azure Event Hub to Blob Storage)
 
 Stream Avro-formatted data from Azure Event Hubs (via Kafka API) using Spark Structured Streaming, process it, and persist results to Azure Blob Storage in Parquet format.
 

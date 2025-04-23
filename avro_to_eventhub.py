@@ -29,5 +29,5 @@ def send_avro_records_to_eventhub(avro_file_path, eventhub_conn_str, eventhub_na
     print(f"✅ Done sending {eventhub_name}\n")
 
 # Send both feeds
-send_avro_records_to_eventhub("passenger_requests.avro", connection_string, topic1_name)
-send_avro_records_to_eventhub("ride_statuses.avro", connection_string, topic2_name)
+send_avro_records_to_eventhub("passenger_requests.avro", producer_connection_string, topic1_name)
+send_avro_records_to_eventhub("ride_statuses.avro", producer_connection_string, topic2_name)

@@ -108,5 +108,10 @@ Stream Avro-formatted data from Azure Event Hubs (via Kafka API) using Spark Str
       - Retrieve the storage account name and access key.
 4. **Update Configuration**: Replace placeholder values in the notebook with your Azure credentials:
    ```bash
+   eventhub_namespace = 'iesstsabbadbaa-grp-06-10'
+   topic1_name = 'passenger_requests_10'
+   topic2_name = 'ride_status_10'
+   consumer_connection_string = "Endpoint=sb://iesstsabbadbaa-grp-06-10.servicebus.windows.net/;SharedAccessKeyName=Consumer_10;SharedAccessKey=jPZjSqQc7HIox8LooseofiUY2mg5/pO/J+AEhDJ4b50="
+   producer_connection_string = "Endpoint=sb://iesstsabbadbaa-grp-06-10.servicebus.windows.net/;SharedAccessKeyName=Producer_10;SharedAccessKey=zbHdilY9QSSJDgFtLf4hb3FnB/N5WVDQQ+AEhIHonHk="
 
 ## **Contributors**: Nicolas Cubillo, Pablo Gomez, Sebastian Llobet, Pablo Jaime Rivera, Jorge Rodriguez

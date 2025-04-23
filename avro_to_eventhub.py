@@ -1,5 +1,10 @@
 !pip install azure-eventhub fastavro
 
+eventhub_namespace = 'iesstsabbadbaa-grp-06-10'
+topic1_name = 'passenger_requests_10'
+topic2_name = 'ride_status_10'
+producer_connection_string = "Endpoint=sb://iesstsabbadbaa-grp-06-10.servicebus.windows.net/;SharedAccessKeyName=Producer_10;SharedAccessKey=zbHdilY9QSSJDgFtLf4hb3FnB/N5WVDQQ+AEhIHonHk="
+
 from azure.eventhub import EventHubProducerClient, EventData
 import fastavro
 import json
